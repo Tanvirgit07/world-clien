@@ -1,10 +1,9 @@
 import { useContext, useState } from "react";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
-
+import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from "react-icons/fa";
 const Login = () => {
-    const {loginUser} = useContext(AuthContext)
+  const { loginUser, googleLogin,gitHubLogin } = useContext(AuthContext);
   const [registerError, setRegisterError] = useState("");
   const [showPass, setShowPass] = useState(false);
   const handleLogin = (e) => {
@@ -13,15 +12,37 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
-    loginUser(email,password)
-    .then(result =>{
-        console.log(result.user)
+
+    loginUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+        setRegisterError(error.message);
+      });
+  };
+
+  const handleGoogleIn = () => {
+    googleLogin()
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+  const handleGitHub = () =>{
+    gitHubLogin()
+    .then(result => {
+      console.log(result.user)
     })
     .catch(error =>{
-        console.log(error.message)
-        setRegisterError(error.message)
+      console.log(error.message)
     })
-  };
+  }
+
   return (
     <div className="lg:max-w-lg mx-auto mb-9 mt-10  border-solid border-2 border-indigo-600 p-8 rounded-xl w-11/12">
       <form onSubmit={handleLogin} className="space-y-4">
@@ -69,6 +90,21 @@ const Login = () => {
           </p>
         </div>
       </form>
+      <div className="my-3">
+        <p className="text-center text-2xl font-bold underline">Login With</p>
+      </div>
+      <div className="mt-6 border flex justify-center gap-5 items-center">
+        <div>
+          <button onClick={handleGoogleIn} className="cursor-pointer text-3xl">
+            <FaGoogle />
+          </button>
+        </div>
+        <div>
+          <button onClick={handleGitHub} className="cursor-pointer text-3xl">
+            <FaGithub />
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

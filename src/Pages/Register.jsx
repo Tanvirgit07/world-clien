@@ -4,7 +4,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { toast } from "sonner";
 
 const Register = () => {
-  const { createUser,updateUserProfile,setUser } = useContext(AuthContext);
+  const { createUser,updateUserProfile,setUser,setReload } = useContext(AuthContext);
   const navigate = useNavigate()
   const [registerError,setRegisterError] = useState('')
   const handleRegister = (e) => {
@@ -23,6 +23,7 @@ const Register = () => {
         console.log(result.user)
         updateUserProfile(name, photo).then(() => {
           setUser(result.user);
+          setReload(true)
           toast.success('Register Successfully!')
           setTimeout(() =>{
             navigate('/')
