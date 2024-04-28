@@ -54,7 +54,7 @@ const Home = () => {
               <div className="max-w-2xl">
                 <h1 className="mb-5 text-5xl font-bold">Bangkok</h1>
                 <p className="mb-5">
-                Bangkok, the capital of Thailand, is a vibrant and bustling city known for its rich cultural heritage, ornate temples, and lively street life. It's often referred to as the "City of Angels" in Thai. Bangkok is famous for its delicious street food, floating markets, and vibrant nightlife scene. 
+                Bangkok, the capital of Thailand, is a vibrant and bustling city known for its rich cultural heritage, ornate temples, and lively street life. It often referred to as the City of Angels in Thai. Bangkok is famous for its delicious street food, floating markets, and vibrant nightlife scene. 
                 </p>
                 <button className="btn btn-primary">Get Started</button>
               </div>
@@ -123,7 +123,7 @@ const Home = () => {
               <div className="max-w-2xl">
                 <h1 className="mb-5 text-5xl font-bold">Sundarban</h1>
                 <p className="mb-5">
-                The Sundarbans is a vast mangrove forest located in the delta region of the Bay of Bengal,straddling India's West Bengal and Bangladesh. It's the largest mangrove forest in the world and a UNESCO World Heritage Site. 
+                The Sundarbans is a vast mangrove forest located in the delta region of the Bay of Bengal,straddling India West Bengal and Bangladesh. It the largest mangrove forest in the world and a UNESCO World Heritage Site. 
                 </p>
                 <button className="btn btn-primary">Get Started</button>
               </div>
