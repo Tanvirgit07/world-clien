@@ -1,9 +1,12 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from "react-icons/fa";
+import { Toaster, toast } from "sonner";
 const Login = () => {
-  const { loginUser, googleLogin,gitHubLogin } = useContext(AuthContext);
+  const { loginUser, googleLogin, gitHubLogin } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
   const [registerError, setRegisterError] = useState("");
   const [showPass, setShowPass] = useState(false);
   const handleLogin = (e) => {
@@ -16,6 +19,10 @@ const Login = () => {
     loginUser(email, password)
       .then((result) => {
         console.log(result.user);
+        toast.success("Login Successfully!");
+        setTimeout(() => {
+          navigate(location?.state ? location.state : "/");
+        }, 2000);
       })
       .catch((error) => {
         console.log(error.message);
@@ -27,21 +34,29 @@ const Login = () => {
     googleLogin()
       .then((result) => {
         console.log(result.user);
+        toast.success("Login Successfully!");
+        setTimeout(() => {
+          navigate(location?.state ? location.state : "/");
+        }, 2000);
       })
       .catch((error) => {
         console.log(error.message);
       });
   };
 
-  const handleGitHub = () =>{
+  const handleGitHub = () => {
     gitHubLogin()
-    .then(result => {
-      console.log(result.user)
-    })
-    .catch(error =>{
-      console.log(error.message)
-    })
-  }
+      .then((result) => {
+        console.log(result.user);
+        toast.success("Login Successfully!");
+        setTimeout(() => {
+          navigate(location?.state ? location.state : "/");
+        }, 2000);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
 
   return (
     <div className="lg:max-w-lg mx-auto mb-9 mt-10  border-solid border-2 border-indigo-600 p-8 rounded-xl w-11/12">
@@ -90,6 +105,7 @@ const Login = () => {
           </p>
         </div>
       </form>
+      <Toaster position="bottom-left" richColors  />
       <div className="my-3">
         <p className="text-center text-2xl font-bold underline">Login With</p>
       </div>

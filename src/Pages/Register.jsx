@@ -1,12 +1,16 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
-import { toast } from "sonner";
+import { Toaster, toast } from "sonner";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
-  const { createUser,updateUserProfile,setUser,setReload } = useContext(AuthContext);
-  const navigate = useNavigate()
-  const [registerError,setRegisterError] = useState('')
+  const { createUser, updateUserProfile, setUser, setReload } =
+    useContext(AuthContext);
+  const navigate = useNavigate();
+  const [registerError, setRegisterError] = useState("");
+  const [inputError, setInputError] = useState("");
+  const [showPass, setShowPass] = useState(false);
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -15,25 +19,37 @@ const Register = () => {
     const photo = form.photo.value;
     const password = form.password.value;
     console.log(name, email, photo, password);
-    setRegisterError('')
+    setRegisterError("");
+    setInputError("");
+
+    if (!/[a-z]/.test(password)) {
+      setInputError("Password should have one Lower case!");
+      return;
+    } else if (!/[A-Z]/.test(password)) {
+      setInputError("Password should have one upper case!");
+      return;
+    } else if (password.length < 6) {
+      setInputError("Password should have six character!");
+      return;
+    }
 
     //create user
-    createUser(email,password)
-    .then(result => {
-        console.log(result.user)
+    createUser(email, password)
+      .then((result) => {
+        console.log(result.user);
         updateUserProfile(name, photo).then(() => {
           setUser(result.user);
-          setReload(true)
-          toast.success('Register Successfully!')
-          setTimeout(() =>{
-            navigate('/')
-          },2000)
+          setReload(true);
+          toast.success("Register Successfully!");
+          setTimeout(() => {
+            navigate("/");
+          }, 2000);
         });
-    })
-    .catch(error =>{
-        console.log(error.message)
-        setRegisterError(error.message)
-    })
+      })
+      .catch((error) => {
+        console.log(error.message);
+        setRegisterError(error.message);
+      });
   };
   return (
     <div className="mb-11">
@@ -68,18 +84,24 @@ const Register = () => {
             className="input input-bordered w-full"
           />
         </div>
-        <div>
-          <p className="text-lg font-bold">password</p>
+        <div className="relative">
+          <p className="text-lg font-bold">Password</p>
           <input
-            type=""
+            type={showPass ? "text" : "password"}
             name="password"
-            placeholder="Type here"
+            required
+            placeholder="password"
             className="input input-bordered w-full"
           />
+          <span
+            className="absolute top-[43px] right-3 text-xl"
+            onClick={() => setShowPass(!showPass)}
+          >
+            {showPass ? <FaEyeSlash /> : <FaEye />}
+          </span>
+          {inputError && <p className="text-red-600">{inputError}</p>}
         </div>
-        {
-          registerError && <p className="text-red-600">{registerError}</p>
-        }
+        {registerError && <p className="text-red-600">{registerError}</p>}
         <div>
           <button className="btn text-lg font-semibold btn-outline btn-accent mt-5 w-full">
             Register
@@ -93,6 +115,7 @@ const Register = () => {
             </Link>
           </p>
         </div>
+        <Toaster richColors  />
       </form>
     </div>
   );
