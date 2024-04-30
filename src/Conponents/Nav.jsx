@@ -4,7 +4,8 @@ import { AuthContext } from "../Provider/AuthProvider";
 
 const Nav = () => {
   const { user, userLogout } = useContext(AuthContext);
-  const [theme,setTheme] = useState('light')
+  const [theme,setTheme] = useState(localStorage.getItem('theme')||'light')
+
   useEffect(() =>{
     localStorage.setItem('theme',theme)
     const localTheme = localStorage.getItem('theme')
@@ -18,7 +19,7 @@ const Nav = () => {
       setTheme('light')
     }
   }
-  // console.log(user);
+  console.log(user);
   const handleLogout = () => {
     userLogout()
       .then(() => {
@@ -132,7 +133,7 @@ const Nav = () => {
                 <div title={user.displayName}>
                   <img
                     className="w-[48px] h-[48px] rounded-full border-2 border-gray-500"
-                    src={user.photoURL}
+                    src={user?.photoURL}
                     alt=""
                   />
                 </div>

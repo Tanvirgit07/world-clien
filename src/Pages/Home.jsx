@@ -1,4 +1,9 @@
+import { useLoaderData } from "react-router-dom";
+import TouristCard from "../Conponents/TouristCard";
+import Country from "../Conponents/Country";
+
 const Home = () => {
+  const addInfo = useLoaderData();
   return (
     <div>
       <div className="carousel h-[90vh] mt-8 mb-8 w-full">
@@ -11,8 +16,7 @@ const Home = () => {
           <div
             className="hero h-[90vh] rounded-xl"
             style={{
-              backgroundImage:
-                "url(https://i.ibb.co/kXnFpqw/Islands.jpg)",
+              backgroundImage: "url(https://i.ibb.co/kXnFpqw/Islands.jpg)",
             }}
           >
             <div className="hero-overlay bg-opacity-60 rounded-xl"></div>
@@ -20,7 +24,10 @@ const Home = () => {
               <div className="max-w-2xl">
                 <h1 className="mb-5 text-5xl font-bold">Island</h1>
                 <p className="mb-5">
-                Islands are landmasses surrounded by water. They vary in size from tiny islets to expansive land masses like Greenland. Islands can be formed through volcanic activity, coral reefs, or as a result of shifting tectonic plates.
+                  Islands are landmasses surrounded by water. They vary in size
+                  from tiny islets to expansive land masses like Greenland.
+                  Islands can be formed through volcanic activity, coral reefs,
+                  or as a result of shifting tectonic plates.
                 </p>
                 <button className="btn btn-primary">Get Started</button>
               </div>
@@ -42,11 +49,10 @@ const Home = () => {
             className="w-full rounded-xl"
           /> */}
 
-<div
+          <div
             className="hero h-[90vh] rounded-xl"
             style={{
-              backgroundImage:
-                "url(https://i.ibb.co/DY7YS2y/bankok.jpg)",
+              backgroundImage: "url(https://i.ibb.co/DY7YS2y/bankok.jpg)",
             }}
           >
             <div className="hero-overlay bg-opacity-60 rounded-xl"></div>
@@ -54,7 +60,11 @@ const Home = () => {
               <div className="max-w-2xl">
                 <h1 className="mb-5 text-5xl font-bold">Bangkok</h1>
                 <p className="mb-5">
-                Bangkok, the capital of Thailand, is a vibrant and bustling city known for its rich cultural heritage, ornate temples, and lively street life. It often referred to as the City of Angels in Thai. Bangkok is famous for its delicious street food, floating markets, and vibrant nightlife scene. 
+                  Bangkok, the capital of Thailand, is a vibrant and bustling
+                  city known for its rich cultural heritage, ornate temples, and
+                  lively street life. It often referred to as the City of Angels
+                  in Thai. Bangkok is famous for its delicious street food,
+                  floating markets, and vibrant nightlife scene.
                 </p>
                 <button className="btn btn-primary">Get Started</button>
               </div>
@@ -76,11 +86,10 @@ const Home = () => {
             className="w-full rounded-xl"
           /> */}
 
-<div
+          <div
             className="hero h-[90vh] rounded-xl"
             style={{
-              backgroundImage:
-                "url(https://i.ibb.co/MMtwqSM/kuala-lumpur.jpg)",
+              backgroundImage: "url(https://i.ibb.co/MMtwqSM/kuala-lumpur.jpg)",
             }}
           >
             <div className="hero-overlay bg-opacity-60 rounded-xl"></div>
@@ -88,13 +97,17 @@ const Home = () => {
               <div className="max-w-2xl">
                 <h1 className="mb-5 text-5xl font-bold">kuala-lumpur</h1>
                 <p className="mb-5">
-                Kuala Lumpur, the capital of Malaysia, is a dynamic metropolis known for its iconic skyline dominated by the Petronas Twin Towers. The city is a melting pot of cultures, with influences from Malay, Chinese, Indian, and indigenous communities. Kuala Lumpur is a hub for shopping, dining, and entertainment, with bustling street markets and upscale malls
+                  Kuala Lumpur, the capital of Malaysia, is a dynamic metropolis
+                  known for its iconic skyline dominated by the Petronas Twin
+                  Towers. The city is a melting pot of cultures, with influences
+                  from Malay, Chinese, Indian, and indigenous communities. Kuala
+                  Lumpur is a hub for shopping, dining, and entertainment, with
+                  bustling street markets and upscale malls
                 </p>
                 <button className="btn btn-primary">Get Started</button>
               </div>
             </div>
           </div>
-
 
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
             <a href="#slide2" className="btn btn-circle">
@@ -111,11 +124,10 @@ const Home = () => {
             className="w-full rounded-xl"
           /> */}
 
-<div
+          <div
             className="hero h-[90vh] rounded-xl"
             style={{
-              backgroundImage:
-                "url(https://i.ibb.co/FVy6fxr/sundarbon.jpg)",
+              backgroundImage: "url(https://i.ibb.co/FVy6fxr/sundarbon.jpg)",
             }}
           >
             <div className="hero-overlay bg-opacity-60 rounded-xl"></div>
@@ -123,13 +135,15 @@ const Home = () => {
               <div className="max-w-2xl">
                 <h1 className="mb-5 text-5xl font-bold">Sundarban</h1>
                 <p className="mb-5">
-                The Sundarbans is a vast mangrove forest located in the delta region of the Bay of Bengal,straddling India West Bengal and Bangladesh. It the largest mangrove forest in the world and a UNESCO World Heritage Site. 
+                  The Sundarbans is a vast mangrove forest located in the delta
+                  region of the Bay of Bengal,straddling India West Bengal and
+                  Bangladesh. It the largest mangrove forest in the world and a
+                  UNESCO World Heritage Site.
                 </p>
                 <button className="btn btn-primary">Get Started</button>
               </div>
             </div>
           </div>
-
 
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
             <a href="#slide3" className="btn btn-circle">
@@ -140,6 +154,20 @@ const Home = () => {
             </a>
           </div>
         </div>
+      </div>
+        <div>
+          <h1 className="text-center">Tourists Spots Section</h1>
+        </div>
+      <div>
+        <h1>add data are : {addInfo.length}</h1>
+      </div>
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 ml-4">
+        {addInfo.map((singleAdd) => (
+          <TouristCard key={singleAdd._id} singleAdd={singleAdd}></TouristCard>
+        ))}
+      </div>
+      <div>
+        <Country></Country>
       </div>
     </div>
   );

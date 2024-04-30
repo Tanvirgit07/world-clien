@@ -11,6 +11,9 @@ import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import MyCart from "./Pages/MyCart";
 import AuthProvider from "./Provider/AuthProvider";
+import ViewDetails from "./Conponents/ViewDetails";
+import CountrySpot from "./Conponents/CountrySpot";
+import Update from "./Conponents/Update";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +23,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader : () => fetch('http://localhost:5000/add'),
       },
       {
         path: "/allTourist",
@@ -41,6 +45,21 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register></Register>,
       },
+      {
+        path : '/details/:id',
+        element:<ViewDetails></ViewDetails>,
+        loader : ({params}) => fetch(`http://localhost:5000/add/${params.id}`)
+      },
+      {
+        path : '/sameCountry/:countryName',
+        element : <CountrySpot></CountrySpot>,
+        loader : ({params}) => fetch(`http://localhost:5000/get-by-country/${params.countryName}`)
+      },
+      {
+        path : '/update/:id',
+        element : <Update></Update>,
+        loader : ({params}) => fetch(`http://localhost:5000/add/${params.id}`)
+      }
     ],
   },
 ]);

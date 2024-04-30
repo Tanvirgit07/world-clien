@@ -31,6 +31,10 @@ const AddTourist = () => {
         .then(res => res.json())
         .then(data =>{
             console.log(data)
+            if(data.insertedId){
+              form.reset()
+              // alert('Successfully insert data!')
+            }
         })
         
     }
@@ -119,8 +123,9 @@ const AddTourist = () => {
             type="text"
             name="email"
             placeholder="Type here"
-            disabled
-            // defaultValue={user.email}
+            // disabled
+            readOnly
+            defaultValue={user?.email}
             className="input input-bordered w-full"
           />
         </div>
@@ -129,8 +134,9 @@ const AddTourist = () => {
           <input
             type="text"
             name="name"
-            disabled
-            // defaultValue={user.displayName}
+            // disabled
+            readOnly
+            defaultValue={user?.displayName}
             placeholder="Type here"
             className="input input-bordered w-full"
           />
