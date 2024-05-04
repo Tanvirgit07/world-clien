@@ -277,9 +277,7 @@ const Home = () => {
             </figure>
             <div className="card-body">
               <h2 className="card-title">Angkor Wat</h2>
-              {/* <div className="card-actions justify-end">
-                <button className="btn btn-primary">Buy Now</button>
-              </div> */}
+              
             </div>
           </div>
 
