@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { GithubAuthProvider } from "firebase/auth";
+
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
