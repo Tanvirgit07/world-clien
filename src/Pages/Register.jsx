@@ -3,8 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Toaster, toast } from "sonner";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import useTitle from "../Conponents/useTitle";
 
 const Register = () => {
+  useTitle('Register')
   const { createUser, updateUserProfile, setUser, setReload } =
     useContext(AuthContext);
   const navigate = useNavigate();

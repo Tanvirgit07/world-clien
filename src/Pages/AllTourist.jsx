@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import SpotCart from "../Conponents/SpotCart";
+import useTitle from "../Conponents/useTitle";
 
 const AllTourist = () => {
+  useTitle('All tourist')
   const [allSpot, setAllSpot] = useState([]);
   console.log(allSpot);
   useEffect(() => {

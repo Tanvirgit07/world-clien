@@ -3,7 +3,9 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from "react-icons/fa";
 import { Toaster, toast } from "sonner";
+import useTitle from "../Conponents/useTitle";
 const Login = () => {
+  useTitle('Login')
   const { loginUser, googleLogin, gitHubLogin } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();

@@ -3,10 +3,50 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { LuArrowBigUpDash } from "react-icons/lu";
 import { MdDelete } from "react-icons/md";
 import { Link } from "react-router-dom";
+import "react-tooltip/dist/react-tooltip.css";
+import { Tooltip } from "react-tooltip";
+import Swal from "sweetalert2";
+import useTitle from "../Conponents/useTitle";
 
 const MyCart = () => {
+  useTitle('My cart')
   const { user } = useContext(AuthContext);
   const [cartData, setCartData] = useState([]);
+  // const [deleteUser,setDeleteUser] = useState(cartData)
+
+  const handleDelete = (_id) => {
+    console.log(_id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/add/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+              const remaining = cartData.filter(
+                (singleDelete) => singleDelete._id !== _id
+              );
+              setCartData(remaining);
+            }
+          });
+      }
+    });
+  };
   // console.log(user)
   useEffect(() => {
     fetch(`http://localhost:5000/myCart/${user?.email}`)
@@ -41,14 +81,30 @@ const MyCart = () => {
                 <td>{singleCart.location}</td>
                 <td>{singleCart.email}</td>
                 <Link to={`/update/${singleCart._id}`}>
-                <td className="text-2xl"><LuArrowBigUpDash /></td>
+                  <td
+                    data-tooltip-id="my-tooltip"
+                    data-tooltip-content="Update"
+                    data-tooltip-place="top"
+                    className="text-2xl"
+                  >
+                    <LuArrowBigUpDash />
+                  </td>
                 </Link>
-                <td className="text-2xl"><MdDelete /></td>
+                <td
+                  data-tooltip-id="my-tooltip"
+                  data-tooltip-content="Delete"
+                  data-tooltip-place="top"
+                  onClick={() => handleDelete(singleCart._id)}
+                  className="text-2xl cursor-pointer"
+                >
+                  <MdDelete />
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
+      <Tooltip id="my-tooltip" />
     </div>
   );
 };

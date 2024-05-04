@@ -5,9 +5,10 @@ const CountryCard = ({ singleCountry }) => {
   return (
     <div>
       <Link to={`/sameCountry/${country_name}`}>
-        <div className="card w-96 bg-base-100 shadow-xl">
-          <figure className="px-10 pt-10">
-            <img src={image} alt="Shoes" className="rounded-xl" />
+        <div className="card lg:w-96 bg-base-100 shadow-xl">
+          <figure className="px-10 pt-10 lg:h-[200px]">
+            <img
+             src={image} alt="Shoes" className="rounded-xl" />
           </figure>
           <div className="card-body items-center text-center">
             <h2 className="card-title">{country_name}</h2>

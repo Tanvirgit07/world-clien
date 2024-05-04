@@ -14,6 +14,7 @@ import auth from "../firebase/firebase.init";
 export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading,setLoading] = useState(true)
   const [reload, setReload] = useState(null);
   const googleProvider = new GoogleAuthProvider();
   const gitHubProvider = new GithubAuthProvider();
@@ -22,10 +23,12 @@ const AuthProvider = ({ children }) => {
   };
 
   const userLogout = () => {
+    setLoading(true)
     return signOut(auth);
   };
 
   const updateUserProfile = (name, photo) => {
+    setLoading(true)
     return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photo,
@@ -33,14 +36,17 @@ const AuthProvider = ({ children }) => {
   };
 
   const loginUser = (email, password) => {
+    setLoading(true)
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   const googleLogin = () =>{
+    setLoading(true)
     return signInWithPopup(auth, googleProvider)
   }
 
   const gitHubLogin = () =>{
+    setLoading(true)
     return signInWithPopup(auth, gitHubProvider)
   }
  
@@ -49,6 +55,7 @@ const AuthProvider = ({ children }) => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       console.log(currentUser);
       setUser(currentUser);
+      setLoading(false)
     });
     return () => {
       unSubscribe();
@@ -63,6 +70,7 @@ const AuthProvider = ({ children }) => {
     setReload,
     setUser,
     user,
+    loading,
     googleLogin,
     gitHubLogin
   };

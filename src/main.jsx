@@ -14,28 +14,33 @@ import AuthProvider from "./Provider/AuthProvider";
 import ViewDetails from "./Conponents/ViewDetails";
 import CountrySpot from "./Conponents/CountrySpot";
 import Update from "./Conponents/Update";
+import PrivetRout from "./Root/PrivetRout";
+import ErrorPage from "./Conponents/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement : <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
         element: <Home></Home>,
+        errorElement : <ErrorPage></ErrorPage>,
         loader : () => fetch('http://localhost:5000/add'),
       },
       {
         path: "/allTourist",
         element: <AllTourist></AllTourist>,
+        errorElement : <ErrorPage></ErrorPage>
       },
       {
         path: "/addTourist",
-        element: <AddTourist></AddTourist>,
+        element: <PrivetRout><AddTourist></AddTourist></PrivetRout>
       },
       {
         path: "/myCart",
-        element: <MyCart></MyCart>,
+        element: <PrivetRout><MyCart></MyCart></PrivetRout>
       },
       {
         path: "/login",
@@ -47,7 +52,7 @@ const router = createBrowserRouter([
       },
       {
         path : '/details/:id',
-        element:<ViewDetails></ViewDetails>,
+        element: <PrivetRout><ViewDetails></ViewDetails></PrivetRout>,
         loader : ({params}) => fetch(`http://localhost:5000/add/${params.id}`)
       },
       {
@@ -57,7 +62,7 @@ const router = createBrowserRouter([
       },
       {
         path : '/update/:id',
-        element : <Update></Update>,
+        element :<PrivetRout><Update></Update></PrivetRout>,
         loader : ({params}) => fetch(`http://localhost:5000/add/${params.id}`)
       }
     ],

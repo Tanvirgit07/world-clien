@@ -4,7 +4,7 @@ const ViewDetails = () => {
   const dataId = useLoaderData();
   console.log(dataId);
   return (
-    <div className="card w-3/4 mx-auto mt-10 glass">
+    <div className="card lg:w-3/4 mx-auto mt-10 mb-10 glass">
       <figure>
         <img className="" src={dataId.photo} alt="car!" />
       </figure>

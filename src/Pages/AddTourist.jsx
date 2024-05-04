@@ -1,7 +1,11 @@
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
+import { Typewriter } from "react-simple-typewriter";
+import useTitle from "../Conponents/useTitle";
 
 const AddTourist = () => {
+  useTitle('Add Tourist')
     const {user} = useContext(AuthContext) || {}
     const handleAddSpot = e =>{
         e.preventDefault();
@@ -33,15 +37,31 @@ const AddTourist = () => {
             console.log(data)
             if(data.insertedId){
               form.reset()
-              // alert('Successfully insert data!')
+              Swal.fire({
+                title: 'Success!',
+                text: 'Successfully insert your Data',
+                icon: 'success',
+                confirmButtonText: 'Done'
+              })
             }
         })
         
     }
   return (
-    <div className="mt-10 mb-10">
+    <div className="mt-10 mb-10 w-11/12 mx-auto">
         <div className="mb-8">
-            <p className="text-3xl font-bold text-center">Add Tourists Spot</p>
+        <span className="text-xl" style={{ color: 'green', fontWeight: 'bold' }}>
+          {/* Style will be inherited from the parent element */}
+          <Typewriter
+            words={['Add Tourist Post']}
+            loop={5}
+            cursor
+            cursorStyle='_'
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          />
+        </span>
         </div>
       <form onSubmit={handleAddSpot} className="">
         <div className="grid lg:grid-cols-2 gap-7">
@@ -152,7 +172,7 @@ const AddTourist = () => {
           />
         </div>
         <div className="mt-5">
-          <button className="btn w-full text-lg">Add Spot</button>
+          <button className="btn w-full text-lg bg-green-500">Add Spot</button>
         </div>
       </form>
     </div>

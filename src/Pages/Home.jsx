@@ -1,12 +1,14 @@
 import { useLoaderData } from "react-router-dom";
 import TouristCard from "../Conponents/TouristCard";
 import Country from "../Conponents/Country";
+import useTitle from "../Conponents/useTitle";
 
 const Home = () => {
+  useTitle('Home')
   const addInfo = useLoaderData();
   return (
     <div>
-      <div className="carousel h-[90vh] mt-8 mb-8 w-full">
+      <div className="carousel lg:h-[90vh] mt-8 mb-8 w-full">
         <div id="slide1" className="carousel-item relative w-full">
           {/* <img
             src="https://daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg"
@@ -14,7 +16,7 @@ const Home = () => {
           /> */}
 
           <div
-            className="hero h-[90vh] rounded-xl"
+            className="hero lg:h-[90vh] rounded-xl"
             style={{
               backgroundImage: "url(https://i.ibb.co/kXnFpqw/Islands.jpg)",
             }}
@@ -29,7 +31,7 @@ const Home = () => {
                   Islands can be formed through volcanic activity, coral reefs,
                   or as a result of shifting tectonic plates.
                 </p>
-                <button className="btn btn-primary">Get Started</button>
+                <button className="btn btn-primary">Explore</button>
               </div>
             </div>
           </div>
@@ -50,7 +52,7 @@ const Home = () => {
           /> */}
 
           <div
-            className="hero h-[90vh] rounded-xl"
+            className="hero lg:h-[90vh] rounded-xl"
             style={{
               backgroundImage: "url(https://i.ibb.co/DY7YS2y/bankok.jpg)",
             }}
@@ -66,7 +68,7 @@ const Home = () => {
                   in Thai. Bangkok is famous for its delicious street food,
                   floating markets, and vibrant nightlife scene.
                 </p>
-                <button className="btn btn-primary">Get Started</button>
+                <button className="btn btn-primary">Explore</button>
               </div>
             </div>
           </div>
@@ -87,7 +89,7 @@ const Home = () => {
           /> */}
 
           <div
-            className="hero h-[90vh] rounded-xl"
+            className="hero lg:h-[90vh] rounded-xl"
             style={{
               backgroundImage: "url(https://i.ibb.co/MMtwqSM/kuala-lumpur.jpg)",
             }}
@@ -104,7 +106,7 @@ const Home = () => {
                   Lumpur is a hub for shopping, dining, and entertainment, with
                   bustling street markets and upscale malls
                 </p>
-                <button className="btn btn-primary">Get Started</button>
+                <button className="btn btn-primary">Explore</button>
               </div>
             </div>
           </div>
@@ -125,7 +127,7 @@ const Home = () => {
           /> */}
 
           <div
-            className="hero h-[90vh] rounded-xl"
+            className="hero lg:h-[90vh] rounded-xl"
             style={{
               backgroundImage: "url(https://i.ibb.co/FVy6fxr/sundarbon.jpg)",
             }}
@@ -140,7 +142,7 @@ const Home = () => {
                   Bangladesh. It the largest mangrove forest in the world and a
                   UNESCO World Heritage Site.
                 </p>
-                <button className="btn btn-primary">Get Started</button>
+                <button className="btn btn-primary">Explore</button>
               </div>
             </div>
           </div>
