@@ -56,6 +56,7 @@ const AddTourist = () => {
             words={['Add Tourist Post']}
             loop={5}
             cursor
+            
             cursorStyle='_'
             typeSpeed={70}
             deleteSpeed={50}
