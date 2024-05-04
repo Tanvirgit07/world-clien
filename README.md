@@ -11,4 +11,4 @@ Currently, two official plugins are available:
 # Website Name :
 ## world Explore
 # website live url
-[Live site link : ]([https://website-name.com](https://world-explore-client.web.app)] 'link website')
+[Lets go to website]([https://www.quora.com](https://world-explore-client.web.app))
