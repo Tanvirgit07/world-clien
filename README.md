@@ -10,5 +10,5 @@ Currently, two official plugins are available:
 
 # Website Name :
 ## world Explore
-# website live url
-[Lets go to website]([https://www.quora.com](https://world-explore-client.web.app))
+## website link 
+[website link]([https://superlative-haupia-452f49.netlify.app/](https://world-explore-client.web.app))
