@@ -27,7 +27,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
         errorElement : <ErrorPage></ErrorPage>,
-        loader : () => fetch('http://localhost:5000/add'),
+        loader : () => fetch('https://world-explor-server.vercel.app/add'),
       },
       {
         path: "/allTourist",
@@ -53,17 +53,17 @@ const router = createBrowserRouter([
       {
         path : '/details/:id',
         element: <PrivetRout><ViewDetails></ViewDetails></PrivetRout>,
-        loader : ({params}) => fetch(`http://localhost:5000/add/${params.id}`)
+        loader : ({params}) => fetch(`https://world-explor-server.vercel.app/add/${params.id}`)
       },
       {
         path : '/sameCountry/:countryName',
         element : <CountrySpot></CountrySpot>,
-        loader : ({params}) => fetch(`http://localhost:5000/get-by-country/${params.countryName}`)
+        loader : ({params}) => fetch(`https://world-explor-server.vercel.app/get-by-country/${params.countryName}`)
       },
       {
         path : '/update/:id',
         element :<PrivetRout><Update></Update></PrivetRout>,
-        loader : ({params}) => fetch(`http://localhost:5000/add/${params.id}`)
+        loader : ({params}) => fetch(`https://world-explor-server.vercel.app/add/${params.id}`)
       }
     ],
   },

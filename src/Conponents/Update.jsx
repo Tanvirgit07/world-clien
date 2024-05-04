@@ -18,7 +18,7 @@ const Update = () => {
         const photo = form.photo.value;
         console.log(spot_name,country_name,location,description,cost,seasonality,time,per_year,photo)
         const newData = {spot_name,country_name,location,description,cost,seasonality,time,per_year,photo}
-        fetch(`http://localhost:5000/add/${loadedUser._id}`, {
+        fetch(`https://world-explor-server.vercel.app/add/${loadedUser._id}`, {
             method : 'PUT',
             headers : {
                 'content-type' : 'application/json'

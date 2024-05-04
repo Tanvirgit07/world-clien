@@ -7,7 +7,7 @@ const AllTourist = () => {
   const [allSpot, setAllSpot] = useState([]);
   console.log(allSpot);
   useEffect(() => {
-    fetch("http://localhost:5000/add")
+    fetch("https://world-explor-server.vercel.app/add")
       .then((res) => res.json())
       .then((data) => {
         setAllSpot(data);

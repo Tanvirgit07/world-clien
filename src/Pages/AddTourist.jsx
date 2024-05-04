@@ -25,7 +25,7 @@ const AddTourist = () => {
         const newAdd = {spot_name,country_name,location,description,cost,seasonality,time,per_year,email,name,photo}
         console.log(newAdd)
 
-        fetch('http://localhost:5000/add', {
+        fetch('https://world-explor-server.vercel.app/add', {
             method : 'POST',
             headers : {
                 'content-type' : 'application/json'

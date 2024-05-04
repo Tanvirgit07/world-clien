@@ -2,9 +2,29 @@ import { useLoaderData } from "react-router-dom";
 import TouristCard from "../Conponents/TouristCard";
 import Country from "../Conponents/Country";
 import useTitle from "../Conponents/useTitle";
+import Swal from "sweetalert2";
 
 const Home = () => {
-  useTitle('Home')
+  useTitle("Home");
+  const handelConfirm = () => {
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Thanks for your conformation!",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  };
+
+  const handleTourist = () =>{
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Successfully Get This OFF!",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  }
   const addInfo = useLoaderData();
   return (
     <div>
@@ -121,8 +141,6 @@ const Home = () => {
           </div>
         </div>
         <div id="slide4" className="carousel-item relative w-full">
-          
-
           <div
             className="hero lg:h-[90vh] rounded-xl"
             style={{
@@ -154,9 +172,9 @@ const Home = () => {
           </div>
         </div>
       </div>
-        <div>
-          <h1 className="text-center">Tourists Spots Section</h1>
-        </div>
+      <div>
+        <h1 className="text-center">Tourists Spots Section</h1>
+      </div>
       <div>
         <h1>add data are : {addInfo.length}</h1>
       </div>
@@ -165,6 +183,138 @@ const Home = () => {
           <TouristCard key={singleAdd._id} singleAdd={singleAdd}></TouristCard>
         ))}
       </div>
+      <div className="my-12">
+        <div className="text-center my-10">
+          <h1>What Type of Transport Do you Like</h1>
+        </div>
+        <div className="grid gap-4 lg:grid-cols-2 grid-cols-1 max-w-4xl mx-auto">
+          <div className="card w-96 bg-base-100 shadow-xl">
+            <figure className="px-10 pt-10">
+              <img
+                src="https://i.ibb.co/Gs2QTT4/ferry-boat-123059-1280.jpg"
+                alt="Shoes"
+                className="rounded-xl"
+              />
+            </figure>
+            <div className="card-body items-center text-center">
+              <h2 className="card-title">Travel By Ship</h2>
+              <div className="card-actions">
+                <button onClick={handelConfirm} className="btn btn-primary">
+                  Confirm
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="card w-96 bg-base-100 shadow-xl">
+            <figure className="px-10 pt-10">
+              <img
+                src="https://i.ibb.co/qR4931g/railroad-8245483-1280.jpg"
+                alt="Shoes"
+                className="rounded-xl"
+              />
+            </figure>
+            <div className="card-body items-center text-center">
+              <h2 className="card-title">Travel By Train</h2>
+              <div className="card-actions">
+                <button onClick={handelConfirm} className="btn btn-primary">
+                  Confirm
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="card w-96 bg-base-100 shadow-xl">
+            <figure className="px-10 pt-10">
+              <img
+                src="https://i.ibb.co/xFVWwqt/bus-2546383-1280.jpg"
+                alt="Shoes"
+                className="rounded-xl"
+              />
+            </figure>
+            <div className="card-body items-center text-center">
+              <h2 className="card-title">Travel By Bus</h2>
+              <div className="card-actions">
+                <button onClick={handelConfirm} className="btn btn-primary">
+                  Confirm
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="card w-96 bg-base-100 shadow-xl">
+            <figure className="px-10 pt-10">
+              <img
+                src="https://i.ibb.co/XDQ6wjM/virgin-2721333-1280.jpg"
+                alt="Shoes"
+                className="rounded-xl"
+              />
+            </figure>
+            <div className="card-body items-center text-center">
+              <h2 className="card-title">Travel By Plane</h2>
+              <div className="card-actions">
+                <button onClick={handelConfirm} className="btn btn-primary">
+                  Confirm
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="">
+        <div className="text-center my-10">
+          <h1>30% Discount for these place</h1>
+        </div>
+
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
+          <div onClick={handleTourist} className="cursor-pointer card w-96 bg-base-100 shadow-xl image-full">
+            <figure>
+              <img
+                src="https://i.ibb.co/CHBW3M8/architecture-3362225-1280.jpg"
+                alt="Shoes"
+              />
+            </figure>
+            <div className="card-body">
+              <h2 className="card-title">Angkor Wat</h2>
+              {/* <div className="card-actions justify-end">
+                <button className="btn btn-primary">Buy Now</button>
+              </div> */}
+            </div>
+          </div>
+
+          <div onClick={handleTourist} className="cursor-pointer card w-96 bg-base-100 shadow-xl image-full">
+            <figure>
+              <img
+                src="https://i.ibb.co/87XZdr8/ha-long-bay-2404431-1280.jpg"
+                alt="Shoes"
+              />
+            </figure>
+            <div className="card-body">
+              <h2 className="card-title">Ha Long Bay</h2>
+              {/* <div className="card-actions justify-end">
+              <button className="btn btn-primary">Buy Now</button>
+            </div> */}
+            </div>
+          </div>
+
+          <div onClick={handleTourist} className="cursor-pointer card w-96 bg-base-100 shadow-xl image-full">
+            <figure>
+              <img
+                src="https://i.ibb.co/1mjJ2ym/coxs-bazar-2894646-1280.jpg"
+                alt="Shoes"
+              />
+            </figure>
+            <div className="card-body">
+              <h2 className="card-title">Cox’s Bazar</h2>
+              {/* <div className="card-actions justify-end">
+                <button className="btn btn-primary">Buy Now</button>
+              </div> */}
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div>
         <Country></Country>
       </div>
