@@ -121,10 +121,7 @@ const Home = () => {
           </div>
         </div>
         <div id="slide4" className="carousel-item relative w-full">
-          {/* <img
-            src="https://daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.jpg"
-            className="w-full rounded-xl"
-          /> */}
+          
 
           <div
             className="hero lg:h-[90vh] rounded-xl"
