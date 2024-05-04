@@ -12,7 +12,7 @@ const MyCart = () => {
   useTitle('My cart')
   const { user } = useContext(AuthContext);
   const [cartData, setCartData] = useState([]);
-  // const [deleteUser,setDeleteUser] = useState(cartData)
+  
 
   const handleDelete = (_id) => {
     console.log(_id);
