@@ -11,4 +11,4 @@ Currently, two official plugins are available:
 # Website Name :
 ## world Explore
 ## website link 
-[website link]([https://superlative-haupia-452f49.netlify.app/](https://world-explore-client.web.app))
+[website link](https://world-explore-client.web.app)
