@@ -1,29 +1,39 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Travel Everywhere !
 
 
-## Website Name :
-## world Explore
+## Project name and description 
+
+
+[world Explore](http://localhost:5173/)
+
+<h3>📝 OverView</h3>
+<P>Travel related websites give travelers the familiarity and feel of heterogeneous places. They provide all the necessary travel information and facilities, so that travelers can plan their trip. These websites provide various travel destinations, hotel information, travel activities, essential tips and advice. It helps travelers to make the travel experience healthy and incredible.</P>
+
+
 
 
 ## website link 
-[website link](https://world-explore-client.web.app)
+[world Explore](http://localhost:5173/)
 
 
 ## Features
-* You can Know country waise tourist spots
-* You also added any tourist spot by filling the input
-* You can also know how many torist spots has your list
-* You can delete
-* You can also update
+* Get an idea about the packages of tourist places in different countries.You can see the details.Get an idea of the cost.
+* You can find tourist centeris for different countries.You can select wich transport to use.
+* User can delete and update his/her post.
 
+## What technology is used
+* HTML
+* CSS
+* React.js
+* Js
+* Tailwind css
+* Mongodb
+* Firebase and etc..
 
-## selected category's name
-### Southeast Asia
-### Tourism Management website
+## How to run 
+* step - 1
+  - git clone (url)
+* step - 2
+  - npm i
+* step - 2
+  - npm run dev
